@@ -9,6 +9,5 @@ joblib
 fastapi
 tqdm
 types-PyYAML
-ensure
 python-box
 -e .

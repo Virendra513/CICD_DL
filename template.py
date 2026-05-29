@@ -28,7 +28,9 @@ list_of_files=[
     "setup.py",
     "research/trials.ipynb",
     "templates/index.html",
-    "tests/test.py"
+    "tests/test.py",
+    "frontend/index.html",
+    "backend/app.py"
 ]
 
 for filepath in list_of_files:
