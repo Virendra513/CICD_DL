@@ -1,0 +1,13 @@
+pandas
+mlflow
+notebook
+numpy
+scikit-learn
+matplotlib
+pyYAML
+joblib
+fastapi
+tqdm
+types-PyYAML
+ensure
+-e .
