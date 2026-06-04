@@ -3,7 +3,7 @@ from src.projectDL_1.pipeline.stage_02_data_validation import DataValidationPipe
 from src.projectDL_1 import logger
 from src.projectDL_1.pipeline.stage_03_data_transformation import DataTransformationPipeline
 from src.projectDL_1.pipeline.stage_04_model_trainer import ModelTrainerPipeline
-
+from src.projectDL_1.pipeline.stage_05_model_evaluation import ModelEvaluationTrainingPipeline
 
 
 try:
@@ -27,6 +27,12 @@ try:
     model_trainer = ModelTrainerPipeline()
     model_trainer.main()
     logger.info(f">>>>>>> Stage Model Training completed <<<<<<<<\n\nx==========x")
+
+    logger.info(f">>>>>>> Stage Model Evaluation started <<<<<<<<")
+    model_trainer = ModelEvaluationTrainingPipeline()
+    model_trainer.main()
+    logger.info(f">>>>>>> Stage Model Evaluation completed <<<<<<<<\n\nx==========x")
+
 
 except Exception as e:
     logger.exception(e)
