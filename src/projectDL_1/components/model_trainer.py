@@ -20,21 +20,20 @@ class ModelTrainer:
 
         trainer_args = TrainingArguments(
             output_dir=self.config.root_dir,
-            per_device_train_batch_size=self.config.per_device_train_batch_size,
-            num_train_epochs=self.config.num_train_epochs,
-            warmup_steps=self.config.warmup_steps,
-            weight_decay=self.config.weight_decay,
-            logging_steps=self.config.logging_steps,
-            evaluation_strategy=self.config.evaluation_strategy,
-            eval_steps=self.config.eval_steps,
-            save_steps=self.config.save_steps,
-            gradient_accumulation_steps=self.config.gradient_accumulation_steps
+            per_device_train_batch_size=int(self.config.per_device_train_batch_size),
+            num_train_epochs=int(self.config.num_train_epochs),
+            warmup_steps=int(self.config.warmup_steps),
+            weight_decay=float(self.config.weight_decay),
+            logging_steps=int(self.config.logging_steps),
+            eval_strategy=self.config.eval_strategy,
+            eval_steps=int(self.config.eval_steps),
+            save_steps=int(self.config.save_steps),
+            gradient_accumulation_steps=int(self.config.gradient_accumulation_steps),
         )
 
         trainer = Trainer(
             model = model_pegasus,
             args = trainer_args,
-            tokenizer = tokenizer,
             train_dataset = dataset_samsum_pt["test"],
             eval_dataset = dataset_samsum_pt["validation"],
             data_collator = seq2seq_data_collator
